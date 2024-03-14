@@ -57,12 +57,29 @@ def predict_well(averageMoisture, wavelength_nanometers, air_quality):
     return model.predict(df)[0]
 #--------------------------------------------------------------------------------------------------------------------------------
 
-# Let the user enter their own 3 parameters
+# Let the user enter their own 3 parameters and Validation
 print("")
 print("USER CHOOSES 3 INPUTS")
-moisture = float(input("Enter selected moisture. Can be any anything from 1-800: "))
-wavelength = int(input("Enter wavelength of LED. Can be integer of either 500/600/700:  "))
-airquality = int(input("Enter air quality percentage. Can be any integer from 1-100: "))
+# Valid ranges for each parameter
+moisture_range = range(1, 801)
+valid_wavelengths = {500, 600, 700}  # Using a set for faster lookup
+air_quality_range = range(1, 101)
+
+# Function to validate inputs
+def validate_input(prompt, valid_values):
+    while True:
+        try:
+            value = int(input(prompt))
+            if value in valid_values:
+                return value
+            else:
+                raise ValueError
+        except ValueError:
+            print(f"Error: Input must be one of {valid_values}")
+
+moisture = validate_input("Enter selected moisture. Can be anything from 1-800: ", moisture_range)
+wavelength = validate_input("Enter wavelength of LED. Can be integer of either 500/600/700: ", valid_wavelengths)
+airquality = validate_input("Enter air quality percentage. Can be any integer from 1-100: ", air_quality_range)
 
 predicted_well = predict_well(moisture, wavelength, airquality)
 predicted_well = round(predicted_well, 2)
@@ -140,7 +157,7 @@ sns.set(style="whitegrid", context="notebook")
 
 # Creating a bar chart with seaborn for better aesthetics
 plt.figure(figsize=(10, 6))
-bar_plot = sns.barplot(x=variable_names, y=values)
+bar_plot = sns.barplot(x=variable_names, y=values, palette="viridis")
 
 # Adding labels and title
 plt.xlabel('Amount of Care', fontsize=14)
@@ -178,12 +195,10 @@ plt.show()
 # plt.figure(figsize=(12, 8))
 # plt.scatter(data['air_quality'], data['well_score'], color='blue', label='Data Points')
 # x_range = np.linspace(data['air_quality'].min(), data['air_quality'].max(), 100)
-# x_range = pd.DataFrame({'air_quality': x_range})
-# x_range['averageMoisture'] = data['averageMoisture'].mean()  # Adding mean value for average moisture
-# x_range['wavelength_nanometers'] = data['wavelength_nanometers'].mean()  # Adding mean value for wavelength
-# x_range = x_range[['averageMoisture', 'air_quality', 'wavelength_nanometers']]
+# X_range = pd.DataFrame({'air_quality': x_range})
+# X_range['averageMoisture'] = data['averageMoisture'].mean()  # Adding mean value for average moisture
+# X_range['wavelength_nanometers'] = data['wavelength_nanometers'].mean()  # Adding mean value for wavelength
 # y_range = model.predict(X_range)
-# 
 # plt.plot(x_range, y_range, color='green', linestyle='--', label='Regression Line')
 # plt.xlabel('Air Quality', fontsize=14)
 # plt.ylabel('Well-being Score', fontsize=14)
