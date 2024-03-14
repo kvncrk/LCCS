@@ -140,7 +140,7 @@ sns.set(style="whitegrid", context="notebook")
 
 # Creating a bar chart with seaborn for better aesthetics
 plt.figure(figsize=(10, 6))
-bar_plot = sns.barplot(x=variable_names, y=values, palette="viridis")
+bar_plot = sns.barplot(x=variable_names, y=values)
 
 # Adding labels and title
 plt.xlabel('Amount of Care', fontsize=14)
@@ -173,22 +173,24 @@ plt.show()
 
 
 # -------------------------------------------------
-#  Plotting scatter plot with regression line for well-being and air quality
-
-plt.figure(figsize=(12, 8))
-plt.scatter(data['air_quality'], data['well_score'], color='blue', label='Data Points')
-x_range = np.linspace(data['air_quality'].min(), data['air_quality'].max(), 100)
-X_range = pd.DataFrame({'air_quality': x_range})
-X_range['averageMoisture'] = data['averageMoisture'].mean()  # Adding mean value for average moisture
-X_range['wavelength_nanometers'] = data['wavelength_nanometers'].mean()  # Adding mean value for wavelength
-y_range = model.predict(X_range)
-plt.plot(x_range, y_range, color='green', linestyle='--', label='Regression Line')
-plt.xlabel('Air Quality', fontsize=14)
-plt.ylabel('Well-being Score', fontsize=14)
-plt.title('Scatter Plot with Regression Line for Air Quality and Well-being Score (not a strong linear relationship)', fontsize=16)
-plt.legend()
-# Show the plot
-plt.show()
+# #  Plotting scatter plot with regression line for well-being and air quality
+# 
+# plt.figure(figsize=(12, 8))
+# plt.scatter(data['air_quality'], data['well_score'], color='blue', label='Data Points')
+# x_range = np.linspace(data['air_quality'].min(), data['air_quality'].max(), 100)
+# x_range = pd.DataFrame({'air_quality': x_range})
+# x_range['averageMoisture'] = data['averageMoisture'].mean()  # Adding mean value for average moisture
+# x_range['wavelength_nanometers'] = data['wavelength_nanometers'].mean()  # Adding mean value for wavelength
+# x_range = x_range[['averageMoisture', 'air_quality', 'wavelength_nanometers']]
+# y_range = model.predict(X_range)
+# 
+# plt.plot(x_range, y_range, color='green', linestyle='--', label='Regression Line')
+# plt.xlabel('Air Quality', fontsize=14)
+# plt.ylabel('Well-being Score', fontsize=14)
+# plt.title('Scatter Plot with Regression Line for Air Quality and Well-being Score (not a strong linear relationship)', fontsize=16)
+# plt.legend()
+# # Show the plot
+# plt.show()
 # -----------------------------------
 
 # Plotting scatter plot with regression line for all variablesimport matplotlib.pyplot as plt
