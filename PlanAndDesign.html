@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {margin: 0;}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #300;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #04AA6D;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right,
+  ul.topnav li {float: none;}
+}
+</style>
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a class="active" href="MeetingTheBrief.html">Meeting Brief</a></li>
+  <li><a class="active" href="Investigation.html">Investigation</a></li>
+  <li><a class="active" href="PlanAndDesign.html">Plan & Design</a></li>
+<li><a href="Create.html">Create</a></li>
+<li><a href="Evaluation.html">Evaluation</a></li>
+<li><a href="References.html">References</a></li>
+ <!-- this is commented out  <li class="right"><a href="about.html">About</a></li>  -->
+</ul>
+
+<div style="padding:0 16px;">
+  <h2>Plan and design: (400 words approx.)</h2>
+  <p>The user will take care of the plant/plants they are growing with use of an automatic water pump, sun-lit environment and LED lights for night. This is optimising the plants health, thus the user is nurturing for the ‘plant buddy’ and in turn, improving their well-being. When nurturing plants and being around them, there are numerous studies suggesting their benefits for the users well being, such as being therapeutic, and the prior points mentioned (<a href="https://www.healthline.com/health/healthy-home-guide/benefits-of-indoor-plants#safe-plants">reference</a>). The design of my project is focused on creating an automatic, user-friendly system that makes the best use out of the components mentioned, the microbits coding possibilities and remain aligned with the universal design principles. I aim to have the user receive the soil moisture readings of the plant with serial communication between the greenhouse microbit and thonny (the python IDE). </p>
+  <p>It is key to note I will use two microbits and their respective boards. Firstly, I plan to use the greenhouse kitronik kit layout, with its environmental board (<a href="https://kitronik.co.uk/products/5699-kitronik-smart-greenhouse-kit">reference</a>). I chose to use this due to its easy set up and other monitoring possibilities, if I was to explore an alternative sensor with a deterred project that didn’t go as planned. Secondly, I will also use a microbit with an air quality board, as it’s OLED display shows air quality data. The reason for this secondary microbit is I can add air quality data from the plants environment when choosing potential ‘what-if’ questions later. The system will have automatic watering (done through makecode for the water pump) and automatic LED display (makecode and done as it provides light at night and days of lower lighting). The kit would provide a suitable environment for plant growth due to these reasons and its efficient size. The microbit is less costly in comparison to other traditional data loggers, which would allow use in an affordable manner.</p>
+  <p>The user can improve their well-being through long term use of this system (priorly mentioned by participating in plant care). They will experience a sense of commitment and the system will be optimising the plants health, which can in turn improve mood of users.</p>
+  <p> I will Incorporate use of an agile approach within my project, handling and altering previous code when necessary. The testing of each section will help develop the subsequent section, such as allowing the code for the LEDs to work as intended, while being in same MakeCode project as automatic water pumping, and if it doesn’t, carry out changes and adapt. This will allow me to develop different sections and/or iterations of my project with ability to cycle back. </p>
+  <center><img src="ProjectImages/Agile.png" alt="Agile:" width ="200" height="200"></center>
+  <p>The following are Universal Design Principles I will adhere to:</p>
+  <center><img src="ProjectImages/Principles.png" alt="Principles:" width ="500" height="300"></center>
+  <p>The following is how I will meet the brief requirements:</p>
+  <center><img src="ProjectImages/Requirements.png" alt="Requirements:" width ="500" height="500"></center>
+  <p>Flowchart for overview of system design plan:</p>
+  <center><img src="ProjectImages/Flowchart.png" alt="Flowchart:" width ="500" height="500"></center>
+  <p>The system architecture:</p>
+  <center><img src="ProjectImages/Architecture.png" alt="Architecture:" width ="500" height="500"></center>
+  <p>I have a brief design plan to follow:</p>
+  <center><img src="ProjectImages/Plan.png" alt="Plan:" width ="700" height="500"></center>
+  <p>Iterations concise development plan:</p>
+  <center><img src="ProjectImages/Iterations.png" alt="Iterations:" width ="600" height="500"></center>
+  <p>The microbit will be used for connecting the environmental board and all greenhouse kit to usb and laptop and also for visual displays on button pressed. The water pump will automatically water in 24 hour intervals. The LED (Kitronik Zipstick) will display artificial lighting for plant growth. It will have limited but randomised colour settings, as the different colours are to be added to the dataset for predictive modelling, and it can make predictions based on the trends (certain light colour correlating with lower air quality etc). </p>
+  <p>The software components include Microsoft MakeCode for Microbit programming, and ski-kit learn module for predictive modelling. The scikit-learn library processes stored data to create a predictive model, offering insights into user well-being based on analysed patterns and relationships with data. These will collectively contribute to the efficient functioning of the system.</p>
+
+  <h4>Exam number:   132863      </h4>
+</div>
+
+</body>
+</html>

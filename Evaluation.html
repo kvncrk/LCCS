@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {margin: 0;}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #300;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #04AA6D;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right,
+  ul.topnav li {float: none;}
+}
+</style>
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a class="active" href="MeetingTheBrief.html">Meeting Brief</a></li>
+  <li><a class="active" href="Investigation.html">Investigation</a></li>
+  <li><a class="active" href="PlanAndDesign.html">Plan & Design</a></li>
+<li><a class="active" href="Create.html">Create</a></li>
+<li><a class="active" href="Evaluation.html">Evaluation</a></li>
+<li><a href="References.html">References</a></li>
+ <!-- this is commented out  <li class="right"><a href="about.html">About</a></li>  -->
+</ul>
+
+<div style="padding:0 16px;">
+  <h2>Evaluation: (approx. 450 words):</h2>
+  <p>My project successfully met the requirements set out in the brief, which has already been explained in my design stage, and also my personal objectives set out myself and the potential users for the development and final artefact. I was extremely satisfied with the Microbits capabilities such as it up with Kitroniks environmental board to automatically water and have an LED light source directly over the plant. The system demonstrated its ability to send the moisture readings and have optional displays for the user, as can be seen in the makecode screenshots under the create heading. My project adhered to the universal design principles I set out to involve.</p>
+  <p>The incorporation of an agile approach was effective in handling the blockades and issues with the artefacts development. The iterative process carried out, for example with my MakeCode Greenhouse Microbits code, allowed for increased flexibility. This has not been mentioned, but as you can see on the code I made use of the seaborn module for optimizing the visual display of the graphs. This was a valuable addition which I hadn’t actually initially set out to incorporate. My third 'what-if' question (can see fully in actual thonny code and partly as image below) was a unique addition as it was a specified example which could be relevant in real life, whereas my first 2 were more generalized. I only added the third question once I had the system set up, where as I knew I’d make use of the others prior, which is something where I somewhat deviated in my original plan.</p>
+  <center><img src="ProjectImages/Code5.png" alt="Code:" width ="600" height="500"></center>
+  <p>In the future, the project could be developed with:</p>
+  <p> -  A larger scale of plants, for more nurturing possibilities.</p>
+  <p> -  Possibly a notifications system to remind users to input their data or to notify if automatic pump is not working properly, as this would ease the usage for the user. </p>
+  <p> -  A larger scale data set to work from for predictive modelling, as this could give more exact insights to trends. </p>
+  <p> -  Allowing users to set own threshold values for readings, as this would eliminate any errors with stand out values (e.g. at the start of reading moisture data it sometimes initially displayed '1' and then values around 700. The user wouldn’t want that '1' reading value to be sent to Thonny).</p>
+  <p> -  Extending system to support multiple users, each with own mood and plant care data, as this could be useful for households or shared plant care responsibilities. </p>
+
+  <h4>Exam number:   132863      </h4>
+</div>
+
+</body>
+</html>
