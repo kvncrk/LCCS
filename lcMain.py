@@ -1,7 +1,17 @@
+#Prompt the user to input mood and anxiety levels
+def validate_mood_and_anxiety(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if 1 <= value <= 10:
+                return value
+            else:
+                raise ValueError
+        except ValueError:
+            print("Error: Input must be a number between 1 and 10")
 
-# Prompt the user to input mood and anxiety levels
-mood_input = float(input('From 1-10, rate your mood for the last day: '))
-anxiety_input = float(input('From 1-10, rate your calmness level, 1 being most anxious: '))
+mood_input = validate_mood_and_anxiety('From 1-10, rate your mood for the last day: ')
+anxiety_input = validate_mood_and_anxiety('From 1-10, rate your calmness level, 1 being most anxious: ')
 
 # Calculate the mean mood score
 from statistics import mean
@@ -71,7 +81,21 @@ else:
     print("Your plant is in a moderate condition. Keep an eye on its moisture levels.")
 
 # User inputs LED zipstick display colour, depending on its colour, the code assigns the corresponding wavelength in nanometers for it
-zip_colour = int(input('Almost there, Input corresponding number to LED colour used today for the system, e.g.(input 1 for red) \n 1 = red \n 2 = green \n 3 = yellow \n: '))
+
+def validate_led_color():
+    while True:
+        try:
+            value = int(input("Input corresponding number to LED colour used today for the system: \n 1 = red \n 2 = green \n 3 = yellow \n: "))
+            if value in {1, 2, 3}:
+                return value
+            else:
+                raise ValueError
+        except ValueError:
+            print("Error: Input must be 1, 2, or 3")
+
+zip_colour = validate_led_color()
+
+# Map the color input to wavelength
 if zip_colour == 1:
     wavelength_nanometers = 700
 elif zip_colour == 2:
@@ -85,7 +109,18 @@ else:
 print(f"The wavelength of the greenhouse kits LEDs is {wavelength_nanometers} nanometers.")
 
 # User inputs IAQ % from microbits OLED display
-air_quality = int(input('From your second microbits oled display, input the air quality index (IAQ %), (If its 100 percent, input 100): '))
+def validate_air_quality():
+    while True:
+        try:
+            value = int(input("From your second microbits oled display, input the air quality index (IAQ %), (If it's 100 percent, input 100): "))
+            if 0 <= value <= 100:
+                return value
+            else:
+                raise ValueError
+        except ValueError:
+            print("Error: Input must be an integer between 0 and 100")
+
+air_quality = validate_air_quality()
 print(f"The air quality index percentage is {air_quality}.")
 
 # Prints out all the different data which have been acquired and which will be wrote to csv file
@@ -113,6 +148,6 @@ f.close()
 
 import pandas as pd
 
-df = pd.read_csv(''Plant_dataset.csv'')
+df = pd.read_csv('Plant_dataset.csv')
 
 print(df)
