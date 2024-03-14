@@ -1,7 +1,7 @@
 
 # Prompt the user to input mood and anxiety levels
 mood_input = float(input('From 1-10, rate your mood for the last day: '))
-anxiety_input = float(input('From 1-10, rate your anxiety level, 1 being most anxious: '))
+anxiety_input = float(input('From 1-10, rate your calmness level, 1 being most anxious: '))
 
 # Calculate the mean mood score
 from statistics import mean
@@ -9,7 +9,7 @@ well_score = mean([mood_input, anxiety_input])
 well_score = round(well_score, 1)
 
 # Display the assigned mood score for the day
-print('So your assigned well-being score for the day is', well_score)
+print('So your assigned mental well-being score for the day is', well_score)
 #-----------------------------------------------------------
 
 # Initialize an empty list to store soil moisture readings
@@ -58,7 +58,7 @@ for x in range(3):
 # Print out list from start with the values which if were float, have been added
 print('The moisture readings values which have come through are', moistureList)
 
-# Getting single, average value of list
+# Getting single value, average value of list
 averageMoisture = round(mean(moistureList),2)
 print('The assigned moisture value for today is', averageMoisture)
 
@@ -71,7 +71,7 @@ else:
     print("Your plant is in a moderate condition. Keep an eye on its moisture levels.")
 
 # User inputs LED zipstick display colour, depending on its colour, the code assigns the corresponding wavelength in nanometers for it
-zip_colour = int(input('Almost there, Input corresponding number to LED colour for the system, e.g.(input 1 for red) \n 1 = red \n 2 = green \n 3 = yellow \n: '))
+zip_colour = int(input('Almost there, Input corresponding number to LED colour used today for the system, e.g.(input 1 for red) \n 1 = red \n 2 = green \n 3 = yellow \n: '))
 if zip_colour == 1:
     wavelength_nanometers = 700
 elif zip_colour == 2:
@@ -85,7 +85,7 @@ else:
 print(f"The wavelength of the greenhouse kits LEDs is {wavelength_nanometers} nanometers.")
 
 # User inputs IAQ % from microbits OLED display
-air_quality = int(input('From your second microbits oled display, input IAQ % (If its 100 percent, input 100): '))
+air_quality = int(input('From your second microbits oled display, input the air quality index (IAQ %), (If its 100 percent, input 100): '))
 print(f"The air quality index percentage is {air_quality}.")
 
 # Prints out all the different data which have been acquired and which will be wrote to csv file
@@ -96,7 +96,7 @@ print(f"well-being score = {well_score}, moisture = {averageMoisture}, wavelengt
 import csv
 
 # Appending results to csv file
-path = "PlantBuddy_Results.csv"  #your file name, will create or overwrite.
+path = "'Plant_dataset.csv'"  #your file name, will create or overwrite.
 f = open(path, "a", newline='')
 
 csver = csv.writer(f)
@@ -105,7 +105,7 @@ csver = csv.writer(f)
 csver.writerow([averageMoisture, wavelength_nanometers, air_quality, well_score, mood_input])
 
 print("I have added the following data to your csv")
-print([averageMoisture, wavelength_nanometers, air_quality, well_score])
+print([averageMoisture, wavelength_nanometers, air_quality, well_score, mood_input])
 print("")
 f.close()
 
@@ -113,6 +113,6 @@ f.close()
 
 import pandas as pd
 
-df = pd.read_csv('PlantBuddy_Results.csv')
+df = pd.read_csv(''Plant_dataset.csv'')
 
 print(df)
