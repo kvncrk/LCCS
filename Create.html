@@ -62,26 +62,71 @@ ul.topnav li.right {float: right;}
   <p>--------------------------------------------------------------------------------------------------------------------</p>
   <p>I carried out individual unit testing with the microbits MakeCode. I had different components of my system, them being : serial sending the data from moisture sensor to thonny program, automatic water pump, zipstick LED display and the OLED display on air quality board. </p>
   <p>The following is some individual unit testing for only the water pumps functioning, with a brief description beneath :</p>
-  <center><img src="ProjectImages/UnitTest1.png" alt="Test:" width ="600" height="500"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/UnitTest1.png" alt="Test:" width ="600" height="500">
+      <figcaption>Unit Test ↑</figcaption>
+    </figure>
+  </div>
   <p>In my system, I wanted it to automatically water every 24 hours (set single alarm to 24: 0 with auto silence), here I altered this to one minute to firstly establish the proper functioning of the automatic watering. This was once I had the entire kitronik greenhouse kit setup. I used the kitronik tutorials accessed online as guide for this and even other components such as the zipstick LED display.  Once I had this functioning, i could tick that section off my list for functions of the system and add this to my main project with corrected alarm time. I made use of the greenhouse extension on MakeCode. (<a href="https://makecode.microbit.org/pkg/KitronikLtd/pxt-kitronik-smart-greenhouse">link</a>). </p>
   <p>The following is establishing the functions of the sensor working as it should, with a brief description beneath:</p>
-  <center><img src="ProjectImages/Establish1.png" alt="Establishing:" width ="600" height="350"></center>
-  <center><img src="ProjectImages/Establish2.png" alt="Establishing:" width ="600" height="500"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Establish1.png" alt="Establishing:" width ="600" height="350">
+      <figcaption>Testing(Establishing functioning as correct) ↑</figcaption>
+    </figure>
+  </div>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Establish2.png" alt="Establishing:" width ="600" height="500">
+      <figcaption>Testing(Establishing functioning as correct) ↑</figcaption>
+    </figure>
+  </div>
   <p>The above code is quite self-explanatory but key as I was establishing the functions of the sensor working as it should. This code of sending the data and showing it on the simulator would identify any problems in the physical hardware of the system (as no data would come through or outlying data would come through, such as a really high moisture reading). I used the device simulator on the MakeCode website to ensure its working. This section also helped in my thonny code as I could use the data from this to send to thonny when I was making the thonny code and carry out calculations etc. on the readings.</p>
   <p>The following is a problem encountered, with a brief description beneath:</p>
-  <center><img src="ProjectImages/Problem1.png" alt="Problem:" width ="600" height="350"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Problem1.png" alt="Problem:" width ="600" height="350">
+      <figcaption>Problem ↑</figcaption>
+    </figure>
+  </div>
   <p>A primary blockade and problem in the implementation of my MakeCode was trying to figure how to use the zipstick LEDS, as I had zero experience in using it before and there was limited resources online. I went through the kitronik tutorials on it step by step and this helped, as you can see above. This is also most of my main system besides the automatic watering.</p>
   <p>The following is another problem encountered, with a brief explanation beneath:</p>
-  <center><img src="ProjectImages/Problem2.png" alt="Problem:" width ="600" height="350"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Problem2.png" alt="Problem:" width ="600" height="350">
+      <figcaption>Problem ↑</figcaption>
+    </figure>
+  </div>
   <p>The above code refers to the computer model (advanced requirement) section of my code. Here the model is being trained on the data from the csv file. Before the underlined pieces of code were implemented, the column names in the DataFrame had leading or trailing white spaces, which resulted in a KeyError. I had just saw that it said the column titles were not found in index so I used chatgpt to explain this error after excessive atttempts of fixing, and the titles had these spaces. The underlined (in red) removed these white spaces and it worked.</p>
   <p>The following is some imporatant code in the development of my project, with explanation underneath:</p>
-  <center><img src="ProjectImages/Code1.png" alt="Code:" width ="600" height="400"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Code1.png" alt="Code:" width ="600" height="400">
+      <figcaption>Code ↑</figcaption>
+    </figure>
+  </div>
   <p>The above code shows validation from the soil moisture readings which have come through. Above this code the readings came through and it only appended to the list if they were float values. Based off this list then, a single moisture value was assigned from getting the mean of the list. This is essential as it was one of the values to be added to the csv which would allow me to meet the other requirements. One of the analysis components is also provided above which simply gives the user a chance to understand in words how well they are doing. It is important to the devleopment of the project as it allows the correct values to continue on, which would be used further in predicitive modelling.</p>
   <p>The following is some imporatant code, with explanation underneath:</p>
-  <center><img src="ProjectImages/Code2.png" alt="Code:" width ="600" height="400"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Code2.png" alt="Code:" width ="600" height="400">
+      <figcaption>Code ↑</figcaption>
+    </figure>
+  </div>
   <p>Above shows code for assigning the wavelength value based on the users input, which is clearly defined as the user knows which colour is which number, as seen on line 74 where I gave clarity to corresponding number inputs for what colours. The second microbit attached up as well is used to read the air quality index percentage of its OLED display. Is all for adding to the csv file.</p>
-  <center><img src="ProjectImages/Code3.png" alt="Code:" width ="600" height="350"></center>
-  <center><img src="ProjectImages/Code4.png" alt="Code:" width ="600" height="350"></center>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Code3.png" alt="Code:" width ="600" height="350">
+      <figcaption>Code ↑</figcaption>
+    </figure>
+  </div>
+  <div style="text-align:center;">
+    <figure>
+      <img src="ProjectImages/Code4.png" alt="Code:" width ="600" height="350">
+      <figcaption>Code ↑</figcaption>
+    </figure>
+  </div>
   <p>I used the csv module to add all these values to the csv file, and also used pandas to show a preview of the data, which is important as it confirms its functioning as intended.</p>
 
   <h4>Exam number:   132863      </h4>
